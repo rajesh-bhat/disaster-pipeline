@@ -12,3 +12,19 @@
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
+
+### Main files
+1. `process_data.py`
+    - Load the CSV files.
+    - Merge the messages & categories df. 
+    - Process the categories to a format which is better suitable for processing.
+    - Clean the data ( Remove Duplicates ).
+    - Save the DataFrame into SQLite db.
+    
+2. `train_classifier.py`
+    - Load and split the data from the SQLite DB into test and train sets.
+    - The script uses a custom tokenize function using nltk to case normalize, lemmatize, and tokenize text.
+    - Use GridSearch to find the best parameters of a `RandomForestClassifier`.
+    - Use the best parameters found above to train the model.
+    - Measure & display the performance of the trained model on the test set. 
+    - Save the model as a Pickle file. 
